@@ -1,0 +1,100 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="login-full-page">
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <form method="POST" class="login-form-frame">
+        {{ login.csrf_token }}
+        <p align="center">{{ login.username.label }}</p>
+        <p align="center">{{ login.username(class_="login-form-username") }}</p>
+        <br/>
+        <p align="center">{{ login.password.label }}</p>
+        <p align="center">{{ login.password(class_="login-form-password") }}</p>
+        <br/>
+        <table class="login-form-table">
+            <tr>
+                <td class="login-form-remember-label">{{ login.remember.label }}</td>
+                <td>{{ login.remember(class_="login-form-remember") }}</td>
+            </tr>
+        </table>
+        <br/>
+        <p align="center">{{ login.submit(class_="login-form-submit") }}</p>
+        <br/>
+        <hr/>
+        <br/>
+        <p>Don't have an account? Click <a href="{{ url_for('register') }}" id="login-to-register">here</a> to sign up.</p>
+    </form>
+    <br/>
+    <br/>
+    <div class="login-mask-image"></div>
+</div>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .login-form-frame {
+        padding: 50px;
+        background-color: black;
+        border: 3px dashed rgb(152, 158, 194);
+        border-radius: 15px;
+        color: white;
+        width: max-content;
+        height: max-content;
+        position: static;
+        top: 50%;
+        left: 65%;
+    }
+    .login-full-page {
+        width: max-content;
+        height: max-content;
+        padding: 200px;
+    }
+    #login-to-register {
+        color: white;
+    }
+    .login-form-remember-label {
+        color: white;
+        display: inline;
+    }
+    .login-form-table {
+        align-content: center;
+        margin: auto;
+    }
+    .login-mask-image {
+        width: 60vw;
+        height: 65vh;
+        padding: 1rem;
+        margin-top: -500px;
+        margin-left: 450px;
+        
+        background-image: url(https://www.sciencenews.org/wp-content/uploads/2019/11/110819_ts_ai_feat.jpg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        -webkit-mask-image: url(https://i7x7p5b7.stackpathcdn.com/codrops/wp-content/uploads/2014/10/mask-image.png);
+        -webkit-mask-size: 600px 550px;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+    }
+    .login-form-submit {
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .login-form-username, .login-form-password {
+        border-radius: 6px;
+        background-color: white;
+        border: none;
+        height: 25px;
+        font-size: medium;
+        padding: 5px;
+        width: 200px;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block content %}
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="order-title-parent">
+    <h1 id="order-title">Place an Order</h1>
+    <p>Order your personalized AI today</p>
+</div>
+<br/>
+<br/>
+<div class="order-form-frame">
+    <form method="POST" id="order-form">
+        {{ makeai.csrf_token }}
+        <p align="center">{{ makeai.wake_word.label }}</p>
+        <p align="center">{{ makeai.wake_word(class_="order-form-input") }}</p>
+        <br/>
+        <p align="center">{{ makeai.voice.label }}</p>
+        <table class="order-form-table">
+            <tr>
+                {% for btn in makeai.voice %}
+                <td>{{ btn.label }}</td>
+                <td>{{ btn() }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <br/>
+        <table class="order-form-table">
+            <tr>
+                <td>{{ makeai.purchase.label }}</td>
+                <td>{{ makeai.purchase() }}</td>
+            </tr>
+            <br/>
+            <tr>
+                <td>{{ makeai.tracking.label }}</td>
+                <td>{{ makeai.tracking() }}</td>
+            </tr>
+        </table>
+        <br/>
+        <table class="order-form-table">
+            <tr>
+                {% for btn in makeai.os %}
+                <td>{{ btn.label }}</td>
+                <td>{{ btn() }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <br/>
+        <p align="center">{{ makeai.user_names.label }}</p>
+        <p align="center">{{ makeai.user_names(class_="order-form-input") }}</p>
+        <br/>
+        <table class="order-form-table">
+            <tr>
+                <td>{{ makeai.files.label }}</td>
+                <td>{{ makeai.files() }}</td>
+            </tr>
+            <br/>
+            <tr>
+                <td>{{ makeai.files2.label }}</td>
+                <td>{{ makeai.files2() }}</td>
+            </tr>
+        </table>
+        <br/>
+        <p align="center">{{ makeai.sos.label }}</p>
+        <p align="center">{{ makeai.sos(class_="order-form-input") }}</p>
+        <br/>
+        <p align="center">{{ makeai.commands.label }}</p>
+        <p align="center">{{ makeai.commands(class_="order-form-input2") }}</p>
+        <br/>
+        <p align="center">{{ makeai.submit(class_="order-form-submit") }}</p>
+    </form>
+</div>
+<br/>
+<br/>
+<br/>
+</div>
+<!--POP UP WITH PLANS WILL COME UP IF FORM IS SUBMITTED AND PLAN IS NOT ALREADY PICKED-->
+<style>
+    .order-title-parent {
+        font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+        margin: 0 auto;
+    }
+    #order-title {
+        font-size: xx-large;
+        text-align: center;
+    }
+    .order-form-frame {
+        background-color: black;
+        color: white;
+        font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+        margin: 0 auto;
+        padding: 30px;
+    }
+    #order-form {
+        background-color: black;
+        border: 5px solid white;
+        padding: 50px;
+    }
+    .order-form-table {
+        color: white;
+        text-align: center;
+    }
+    .order-form-submit {
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .order-form-input {
+        border-radius: 6px;
+        background-color: white;
+        border: none;
+        height: 25px;
+        font-size: medium;
+        padding: 5px;
+        width: 200px;
+    }
+    .order-form-input2 {
+        resize: none;
+        width: 200px;
+        height: 125px;
+        border-radius: 6%;
+    }
+</style>
+{% endblock %}

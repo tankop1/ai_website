@@ -1,0 +1,70 @@
+<title>Personal AI</title>
+<div class="base-parent">
+    <body class="base-main-content">
+        <header class="base-head-nav-bar">
+            <div class="base-nav-bar-links">
+                <a class="base-link-regular" id="home-link" href="{{ url_for('home') }}">HOME</a>
+                <a class="base-link-regular" id="about-link" href="#">ABOUT</a>
+                <a class="base-link-regular" id="plan-link" href="{{ url_for('plans') }}">PLANS</a>
+                <a class="base-link-regular" id="shop-link" href="{{ url_for('shop') }}">ORDER</a>
+                {% if current_user.is_authenticated %}
+                <a class="base-link-regular" id="logout-link" href="{{ url_for('logout') }}">LOGOUT</a>
+                {% endif %}
+                {% if current_user.is_authenticated == False %}
+                <a class="base-link-regular" id="login-link" href="{{ url_for('login') }}">LOG IN</a>
+                {% endif %}
+            </div>
+        </header>
+        {% block content %}{% endblock %}
+    </body>
+    <footer class="base-footer" contenteditable>Personal AI Assistant Website for AP CSP Performance Task<br>Created by Tanner Kopel</footer>
+</div>
+<style>
+
+    *{ margin: 0%; }
+
+    .base-parent {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        outline-style: none;
+    }
+    .base-head-nav-bar {
+        background-color:black;
+        padding: 5px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 8;
+    }
+    .base-footer {
+        background-color:darkgray;
+        padding: 20px;
+        font-size: medium;
+    }
+    .base-link-regular {
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+        font-size: small;
+        float: left;
+        font-family: Gill Sans, sans-serif;
+    }
+    #home-link {
+        margin-left: 6%;
+    }
+    #about-link {
+        margin-left: 16%;
+    }
+    #plan-link {
+        margin-left: 16%;
+    }
+    #shop-link {
+        margin-left: 16%;
+    }
+    #logout-link {
+        margin-left: 16%
+    }
+    #login-link {
+        margin-left: 16%
+    }
+</style>

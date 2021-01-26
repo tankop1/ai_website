@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% block content %}
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="checkout-title-parent" align="center">
+    <h1 class="checkout-title">Checkout</h1>
+    <p>Enter you payment information, and your AI will be ordered</p>
+</div>
+<br/>
+<br/>
+<div class="checkout-cart-parent" align="center">
+    <h3 class="checkout-cart-title">Your AI Customizations</h3>
+    <br/>
+    <p class="checkout-cart-customization">Wake Word: {{ order[0] }}</p>
+    <p class="checkout-cart-customization">Default Voice: {{ order[1] }}</p>
+    {% if order[2] == True %}
+    <p class="checkout-cart-customization">Purchasing Enabled</p>
+    {% endif %}
+    {% if order[2] == False %}
+    <p class="checkout-cart-customization">Purchasing Disabled</p>
+    {% endif %}
+    {% if order[3] == True %}
+    <p class="checkout-cart-customization">Tracking Enabled</p>
+    {% endif %}
+    {% if order[3] == False %}
+    <p class="checkout-cart-customization">Tracking Disabled</p>
+    {% endif %}
+    <p class="checkout-cart-customization">Operating System: {{ order[4] }}</p>
+    <p class="checkout-cart-customization">Users: {{ order[5] }}</p>
+    {% if order[6] == True %}
+    <p class="checkout-cart-customization">File Access Enabled</p>
+    {% endif %}
+    {% if order[6] == False %}
+    <p class="checkout-cart-customization">File Access Disabled</p>
+    {% endif %}
+    {% if order[7] == True %}
+    <p class="checkout-cart-customization">File Altering Enabled</p>
+    {% endif %}
+    {% if order[7] == False %}
+    <p class="checkout-cart-customization">File Altering Disabled</p>
+    {% endif %}
+    <p class="checkout-cart-customization">SOS Command: {{ order[8] }}</p>
+</div>
+<div class="checkout-price-parent">
+    <div class="checkout-price-frame">
+        <p class="checkout-price-large"><span class="checkout-price-small">Before tax</span>  $999.99</p>
+        <p class="checkout-price-large"><span class="checkout-price-small">Sales tax</span>  $99.99</p>
+        <br/>
+        <hr/>
+        <br/>
+        <p class="checkout-price-large"><span class="checkout-price-small">After tax</span>  $999.99</p>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="checkout-form-parent">
+    <form method="POST">
+        {{ purchase.csrf_token }}
+        <p align="center">{{ purchase.card_number.label }}</p>
+        <p align="center">{{ purchase.card_number(class_="checkout-form-input") }}</p>
+        <br/>
+        <p align="center">{{ purchase.cvv_code.label }}</p>
+        <p align="center">{{ purchase.cvv_code(class_="checkout-form-input") }}</p>
+        <br/>
+        <p align="center">{{ purchase.expiration.label }}</p>
+        <p align="center">{{ purchase.expiration(class_="checkout-form-input") }}</p>
+        <table class="checkout-form-table">
+            <tr>
+                <td>{{ purchase.save_card.label }}</td>
+                <td>{{ purchase.save_card() }}</td>
+            </tr>
+        </table>
+        <br/>
+        <p align="center">{{ purchase.submit(class_="checkout-form-submit") }}</p>
+    </form>
+    <br/>
+</div>
+<style>
+    .checkout-cart-parent {
+        border: 3px solid black;
+        background-color: white;
+        font-size: large;
+        padding: 35px;
+        font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+        width: 230px;
+        height: max-content;
+        align-content: center;
+        margin-left: 1000px;
+        float: right;
+    }
+    .checkout-title-parent {
+        margin-left: 332px;
+        margin-top: 50px;
+        font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+        width: max-content;
+        height: max-content;
+    }
+    .checkout-price-parent {
+        background-color: black;
+        font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+        color: white;
+        font-size: larger;
+        padding: 30px;
+        width: 250px;
+        height: 200px;
+        margin-left: 998px;
+        float: right;
+    }
+    .checkout-price-frame {
+        background-color: black;
+        border: 5px solid white;
+        padding: 35px;
+    }
+    .checkout-price-small {
+        font-size: medium;
+    }
+    .checkout-title {
+        font-size: xx-large;
+    }
+    .checkout-form-table {
+        align-content: center;
+    }
+    .checkout-form-parent {
+        font-size: large;
+        font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+        display: block;
+        margin-left: -400px;
+        margin-top: -500px;
+    }
+    .checkout-form-submit {
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .checkout-form-input {
+        border-radius: 6px;
+        background-color: white;
+        border: 1px solid black;
+        height: 25px;
+        font-size: medium;
+        padding: 5px;
+        width: 200px;
+    }
+</style>
+<!--POP UP WITH PLANS WILL COME UP IF FORM IS SUBMITTED AND PLAN IS NOT ALREADY PICKED-->
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="register-full-page">
+<br/>
+<br/>
+<br/>
+<br/>
+    <form method="POST" class="register-form-frame">
+        {{ register.csrf_token }}
+        <p align="center">{{ register.first_name.label }}</p>
+        <p align="center">{{ register.first_name(class_="register-form-name") }}</p>
+        <br/>
+        <p align="center">{{ register.last_name.label }}</p>
+        <p align="center">{{ register.last_name(class_="register-form-surname") }}</p>
+        <br/>
+        <p align="center">{{ register.email.label }}</p>
+        <p align="center">{{ register.email(class_="register-form-email") }}</p>
+        <br/>
+        <p align="center">{{ register.username.label }}</p>
+        <p align="center">{{ register.username(class_="register-form-username") }}</p>
+        <br/>
+        <p align="center">{{ register.password.label }}</p>
+        <p align="center">{{ register.password(class_="register-form-password") }}</p>
+        <br/>
+        <p align="center">{{ register.confirm_password.label }}</p>
+        <p align="center">{{ register.confirm_password(class_="register-form-password2") }}</p>
+        <br/>
+        <p align="center">{{ register.submit(class_="register-form-submit") }}</p>
+        <br/>
+        <hr/>
+        <br/>
+        <p>Already have an account? Click <a href="{{ url_for('login') }}" id="register-to-login">here</a> to login.</p>
+    </form>
+    <!--<div class="register-description">
+        <h2 id="register-description-title">OUR AI</h2>
+        <br/>
+        <br/>
+        <br/>
+        <div class="register-description-box-frame" id="register-description-box1" align="center">
+            <img src="" alt="" class="register-description-box-icon">
+            <p class="register-description-box-text">text description of box 1 here</p>
+        </div>
+        <br/>
+        <br/>
+        <div class="register-description-box-frame" id="register-description-box2" align="center">
+            <img src="" alt="" class="register-description-box-icon">
+            <p class="register-description-box-text">text description of box 2 here</p>
+        </div>
+        <br/>
+        <br/>
+        <div class="register-description-box-frame" id="register-description-box3" align="center">
+            <img src="" alt="" class="register-description-box-icon">
+            <p class="register-description-box-text">text description of box 3 here</p>
+        </div>
+    </div>-->
+</div>
+<style>
+    .register-form-frame {
+        padding: 50px;
+        background-color: black;
+        border: 3px dashed rgb(152, 158, 194);
+        border-radius: 15px;
+        color: white;
+        width: 300px;
+        height: max-content;
+    }
+    .register-full-page {
+        padding: 150px;
+        height: max-content;
+        background-image: url(https://i0.wp.com/bdtechtalks.com/wp-content/uploads/2020/05/robot-thinking.jpg?fit=3558%2C2092&ssl=1);
+        background-repeat: no-repeat;
+        background-size: cover;
+        align-content: center;
+    }
+    #register-to-login {
+        color: white;
+    }
+    .register-description {
+        background-color: black;
+        height: 800px;
+        width: 500px;
+        position: absolute;
+        margin-top: -1000px;
+        margin-left: 700px;
+        padding: 100px;
+        color: white;
+    }
+    .register-description-box-frame {
+        border: 3px solid white;
+        color: white;
+        background-color: rgb(26, 25, 25);
+        border-radius: 20px;
+        width: 400px;
+        height: 100px;
+        padding: 20px;
+        margin-left: -30px;
+    }
+    .register-description-title {
+        font-family: sans-serif;
+        display: inline-block;
+        margin-left: 100px;
+    }
+    .register-form-submit {
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .register-form-name, .register-form-surname, .register-form-email, .register-form-username, .register-form-password, .register-form-password2 {
+        border-radius: 6px;
+        background-color: white;
+        border: none;
+        height: 25px;
+        font-size: medium;
+        padding: 5px;
+        width: 200px;
+    }
+</style>
+{% endblock %}

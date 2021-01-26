@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="info-full-page" align="center">
+    <div class="info-parent" align="center">
+        <h3 class="info-large">Success! Your order has been submitted</h3>
+        <br/>
+        <p>When your personalized AI is ready, you can find the download link in your email.</p>
+        <br/>
+        <p>This AI will be sent to {{ user.email }}. If this is incorrect, please contact us at 1-800-386-7636</p>
+        <br/>
+        <a href="{{ url_for('home') }}" id="info-to-home">Return to homepage</a>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<style>
+    .info-parent {
+        color: white;
+        background-color: black;
+        border: 5px solid white;
+        width: max-content;
+        height: max-content;
+        font-size: large;
+        font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+        padding: 35px;
+    }
+    .info-full-page {
+        margin: 0 auto;
+        background-color: black;
+        padding: 35px;
+    }
+    .info-large {
+        font-size: x-large;
+    }
+    #info-to-home {
+        font-size: large;
+        font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+        color: white;
+    }
+</style>
+{% endblock %}
