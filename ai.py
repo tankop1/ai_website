@@ -310,7 +310,7 @@ def generateResponse(text):
         cityName = getCity(text)
         unitSystem = 'imperial'
 
-        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=d1abe5f16eb3b088a68ad6db06805101&units={}'.format(cityName, unitSystem)
+        url = # Get your own URL at https://openweathermap.org/api
 
         res = requests.get(url)
         data = res.json()
